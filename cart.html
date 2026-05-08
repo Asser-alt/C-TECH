@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.CSS">
+</head>
+<body>
+    <div class="con">
+        <h1>c-tech</h1>
+        <a href="index.HTML" class="link">home</a>
+        <a href="about.html" class="link">about</a>
+        <a href="products.html" class="link">products</a>
+        <a href="contact.html" class="link">contact</a>
+        <a href="cart.html">🛒 Cart</a>
+        <button class="btm">Get Started</button>
+    </div>
+
+<h1>🛒 Your Cart</h1>
+
+<ul id="cartList"></ul>
+
+<script>
+function loadCart() {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let list = document.getElementById("cartList");
+
+    list.innerHTML = "";
+
+    if (cart.length === 0) {
+        list.innerHTML = "<p>الكارت فاضي ❌</p>";
+        return;
+    }
+
+    cart.forEach(function(item, index) {
+
+        let li = document.createElement("li");
+
+        li.innerHTML = `
+            ${item}
+            <button onclick="removeItem(${index})">🗑️</button>
+        `;
+
+        list.appendChild(li);
+    });
+}
+
+function removeItem(index) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index, 1); // يمسح المنتج
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    loadCart(); // يعيد تحميل الكارت
+}
+
+// أول ما الصفحة تفتح
+loadCart();
+</script>
+
+</body>
+</html>

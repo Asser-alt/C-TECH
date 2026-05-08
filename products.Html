@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <div class="con">
+        <h1>c-tech</h1>
+        <a href="index.html" class="link">home</a>
+        <a href="about.html" class="link">about</a>
+        <a href="products.html" class="link">products</a>
+        <a href="contact.html" class="link">contact</a>
+        <a href="cart.html">🛒 Cart</a>
+        <button class="btm">Get Started</button>
+    </div>
+
+    
+    <div class="product">
+
+        <div class="item">
+            <img src="image copy 4.png" class="hwawi">
+            <p>Hawawi Y9 Prime</p>
+            <p>4000 L.E</p>
+            <button onclick="addToCart('Hawawi Y9 Prime')" class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 5.png"class="hwawi">
+            <p>Redmi Note 13</p>
+            <p>9000 L.E</p>
+            <button onclick="addToCart('Redmi Note 13')"class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 6.png" class="hwawi">
+            <p>Redmi Note 14</p>
+            <p>12000 L.E</p>
+            <button onclick="addToCart('Redmi Note 14') " class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 7.png" class="hwawi">
+            <p>OPPO Reno 8T</p>
+            <p>15000 L.E</p>
+            <button onclick="addToCart('OPPO Reno 8T')" class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 8.png" class="hwawi" >
+            <p>Iphone 13 Pro Max</p>
+            <p>45000 L.E</p>
+            <button onclick="addToCart('Iphone 13 Pro Max')" class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 9.png" class="hwawi">
+            <p>Iphone 14 Pro Max</p>
+            <p>50000 L.E</p>
+            <button onclick="addToCart('Iphone 14 Pro Max')" class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 10.png" class="hwawi">
+            <p>Iphone 17 Pro Max</p>
+            <p>100000 L.E</p>
+            <button onclick="addToCart('Iphone 17 Pro Max')" class="cart">Add to Cart</button>
+        </div>
+
+        <div class="item">
+            <img src="image copy 11.png" class="hwawi">
+            <p>Iphone 6s Plus</p>
+            <p>4500 L.E</p>
+            <button onclick="addToCart('Iphone 6s Plus')" class="cart">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function addToCart(productName) {
+
+            // نجيب الكارت القديم
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // نضيف المنتج
+            cart.push(productName);
+
+            // نخزن تاني
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert("تم إضافة المنتج للكارت ✅");
+        }
+    </script>
+
+</body>
+</html>
